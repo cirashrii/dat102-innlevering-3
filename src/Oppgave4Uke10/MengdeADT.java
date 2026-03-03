@@ -1,3 +1,5 @@
+package Oppgave4Uke10;
+
 public interface MengdeADT<T> {
 
     /**
