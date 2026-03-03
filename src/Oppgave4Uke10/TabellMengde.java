@@ -2,10 +2,14 @@ package Oppgave4Uke10;
 
 
 public class TabellMengde<T> implements MengdeADT<T> {
+    private T[] mengdeTabell;
 
 
     @Override
     public boolean erTom() {
+        if (mengdeTabell[0] == null) {
+            return true;
+        }
         return false;
     }
 
