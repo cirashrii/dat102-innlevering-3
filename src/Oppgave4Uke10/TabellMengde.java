@@ -1,6 +1,8 @@
 package Oppgave4Uke10;
 
+
 public class TabellMengde<T> implements MengdeADT<T> {
+
 
     @Override
     public boolean erTom() {
