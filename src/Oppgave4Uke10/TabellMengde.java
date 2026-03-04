@@ -3,11 +3,17 @@ package Oppgave4Uke10;
 
 public class TabellMengde<T> implements MengdeADT<T> {
     private T[] mengdeTabell;
+    private int n;
+
+    public TabellMengde() {
+        mengdeTabell = (T[]) new Object[1001];
+        n = 0;
+    }
 
 
     @Override
     public boolean erTom() {
-        if (mengdeTabell[0] == null) {
+        if (n == 0) {
             return true;
         }
         return false;
@@ -15,12 +21,22 @@ public class TabellMengde<T> implements MengdeADT<T> {
 
     @Override
     public boolean inneholder(T element) {
+        for (int i = 0; i < n; i++) {
+            if (mengdeTabell[i] == element) {
+                return true;
+            }
+        }
         return false;
     }
 
     @Override
     public boolean erDelmengdeAv(MengdeADT<T> annenMengde) {
-        return false;
+        for (int i = 0; i < n; i++) {
+            if (!annenMengde.inneholder(mengdeTabell[i])){
+                return false;
+            }
+        }
+        return true;
     }
 
     @Override
@@ -35,6 +51,12 @@ public class TabellMengde<T> implements MengdeADT<T> {
 
     @Override
     public MengdeADT<T> snitt(MengdeADT<T> annenMengde) {
+        if (!erDelmengdeAv(annenMengde)) {
+            return null;
+        }
+//        for (int i = 0; i < n; i++) {
+//
+//        }
         return null;
     }
 
@@ -50,7 +72,13 @@ public class TabellMengde<T> implements MengdeADT<T> {
 
     @Override
     public void leggTil(T element) {
-
+        if (element == null) {
+            return;
+        }
+        if (!inneholder(element)) {
+            mengdeTabell[n] = element;
+            n++;
+        }
     }
 
     @Override
@@ -70,6 +98,6 @@ public class TabellMengde<T> implements MengdeADT<T> {
 
     @Override
     public int antallElementer() {
-        return 0;
+        return n;
     }
 }
