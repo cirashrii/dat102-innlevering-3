@@ -66,4 +66,46 @@ public class TabellMengdeTest {
 
         assertFalse(m2.erDelmengdeAv(m1));
     }
+
+    @Test
+    void sjekkSnitt1() {
+        MengdeADT<Integer> m1 = new TabellMengde<>();
+        m1.leggTil(2);
+        m1.leggTil(3);
+
+        MengdeADT<Integer> m2 = new TabellMengde<>();
+        m2.leggTil(1);
+        m2.leggTil(2);
+        m2.leggTil(3);
+        m2.leggTil(4);
+        m2.leggTil(5);
+
+        MengdeADT<Integer> m3 = m1.snitt(m2);
+        assertFalse(m3.inneholder(1));
+        assertTrue(m3.inneholder(2));
+        assertTrue(m3.inneholder(3));
+        assertFalse(m3.inneholder(4));
+        assertFalse(m3.inneholder(5));
+    }
+
+    @Test
+    void sjekkSnitt2() {
+        MengdeADT<Integer> m1 = new TabellMengde<>();
+        m1.leggTil(1);
+        m1.leggTil(2);
+        m1.leggTil(3);
+
+        MengdeADT<Integer> m2 = new TabellMengde<>();
+        m2.leggTil(2);
+        m2.leggTil(3);
+        m2.leggTil(4);
+        m2.leggTil(5);
+
+        MengdeADT<Integer> m3 = m1.snitt(m2);
+        assertFalse(m3.inneholder(1));
+        assertTrue(m3.inneholder(2));
+        assertTrue(m3.inneholder(3));
+        assertFalse(m3.inneholder(4));
+        assertFalse(m3.inneholder(5));
+    }
 }

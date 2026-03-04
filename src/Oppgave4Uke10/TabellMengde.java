@@ -54,10 +54,15 @@ public class TabellMengde<T> implements MengdeADT<T> {
         if (!erDelmengdeAv(annenMengde)) {
             return null;
         }
-//        for (int i = 0; i < n; i++) {
-//
-//        }
-        return null;
+
+        MengdeADT<T> tempMengdetabell = new TabellMengde<>();
+
+        for (int i = 0; i < n; i++) {
+            if (annenMengde.inneholder(mengdeTabell[i])){
+                tempMengdetabell.leggTil(mengdeTabell[i]);
+            }
+        }
+        return tempMengdetabell;
     }
 
     @Override
