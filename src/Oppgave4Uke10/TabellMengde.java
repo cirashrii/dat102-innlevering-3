@@ -65,7 +65,7 @@ public class TabellMengde<T> implements MengdeADT<T> {
 
     @Override
     public T[] tilTabell() {
-        return new T[0];
+        return mengdeTabell;
     }
 
     @Override
