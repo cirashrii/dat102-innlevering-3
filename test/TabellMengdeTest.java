@@ -83,6 +83,66 @@ public class TabellMengdeTest {
     }
 
     @Test
+    void sjekkMengderErLike() {
+        MengdeADT<Integer> m1 = new TabellMengde<>();
+        m1.leggTil(1);
+        m1.leggTil(2);
+        m1.leggTil(3);
+
+        MengdeADT<Integer> m2 = new TabellMengde<>();
+        m2.leggTil(1);
+        m2.leggTil(2);
+        m2.leggTil(3);
+
+        assertTrue(m1.erLik(m2));
+    }
+
+    @Test
+    void sjekkMengderErIkkeLike() {
+        MengdeADT<Integer> m1 = new TabellMengde<>();
+        m1.leggTil(1);
+        m1.leggTil(2);
+
+        MengdeADT<Integer> m2 = new TabellMengde<>();
+        m2.leggTil(1);
+        m2.leggTil(2);
+        m2.leggTil(3);
+
+        assertFalse(m1.erLik(m2));
+    }
+
+    @Test
+    void sjekkMengderErDisjunkte() {
+        MengdeADT<Integer> m1 = new TabellMengde<>();
+        m1.leggTil(1);
+        m1.leggTil(2);
+        m1.leggTil(3);
+
+        MengdeADT<Integer> m2 = new TabellMengde<>();
+        m2.leggTil(4);
+        m2.leggTil(5);
+        m2.leggTil(6);
+
+        assertTrue(m1.erDisjunkt(m2));
+    }
+
+    @Test
+    void sjekkMengdeErIkkeDisjunkte() {
+        MengdeADT<Integer> m1 = new TabellMengde<>();
+        m1.leggTil(1);
+        m1.leggTil(2);
+        m1.leggTil(3);
+
+        MengdeADT<Integer> m2 = new TabellMengde<>();
+        m2.leggTil(3);
+        m2.leggTil(4);
+        m2.leggTil(5);
+
+        assertFalse(m1.erDisjunkt(m2));
+    }
+
+
+    @Test
     void sjekkSnitt1() {
         MengdeADT<Integer> m1 = new TabellMengde<>();
         m1.leggTil(2);

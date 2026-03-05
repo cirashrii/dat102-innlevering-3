@@ -46,12 +46,20 @@ public class TabellMengde<T> implements MengdeADT<T> {
 
     @Override
     public boolean erLik(MengdeADT<T> annenMengde) {
-        return false;
+        if (this.n != annenMengde.antallElementer()) {
+            return false;
+        }
+        return this.erDelmengdeAv(annenMengde);
     }
 
     @Override
     public boolean erDisjunkt(MengdeADT<T> annenMengde) {
-        return false;
+        for (int i = 0; i < n; i++) {
+            if (annenMengde.inneholder(mengdeTabell[i])){
+                return false;
+            }
+        }
+        return true;
     }
 
     @Override
