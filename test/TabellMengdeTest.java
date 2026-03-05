@@ -161,6 +161,7 @@ public class TabellMengdeTest {
         assertTrue(m3.inneholder(3));
         assertFalse(m3.inneholder(4));
         assertFalse(m3.inneholder(5));
+        assertEquals(2, m3.antallElementer());
     }
 
     @Test
@@ -182,6 +183,7 @@ public class TabellMengdeTest {
         assertTrue(m3.inneholder(3));
         assertFalse(m3.inneholder(4));
         assertFalse(m3.inneholder(5));
+        assertEquals(2, m3.antallElementer());
     }
 
     @Test
@@ -202,6 +204,29 @@ public class TabellMengdeTest {
         assertTrue(m3.inneholder(3));
         assertTrue(m3.inneholder(4));
         assertTrue(m3.inneholder(5));
+        assertEquals(5, m3.antallElementer());
+    }
+
+    @Test
+    void sjekkMinus() {
+        MengdeADT<Integer> m1 = new TabellMengde<>();
+        m1.leggTil(1);
+        m1.leggTil(2);
+        m1.leggTil(3);
+
+        MengdeADT<Integer> m2 = new TabellMengde<>();
+        m2.leggTil(2);
+        m2.leggTil(3);
+        m2.leggTil(4);
+        m2.leggTil(5);
+
+        MengdeADT<Integer> m3 = m2.minus(m1);
+        assertFalse(m3.inneholder(1));
+        assertFalse(m3.inneholder(2));
+        assertFalse(m3.inneholder(3));
+        assertTrue(m3.inneholder(4));
+        assertTrue(m3.inneholder(5));
+        assertEquals(2, m3.antallElementer());
     }
 
     @Test
@@ -222,5 +247,23 @@ public class TabellMengdeTest {
         assertTrue(m1.inneholder(3));
         assertTrue(m1.inneholder(4));
         assertTrue(m1.inneholder(5));
+        assertEquals(5, m1.antallElementer());
+    }
+
+    @Test
+    void sjekkFjern(){
+        MengdeADT<Integer> m = new TabellMengde<>();
+        m.leggTil(1);
+        m.leggTil(2);
+        m.leggTil(3);
+        m.leggTil(4);
+
+        m.fjern(2);
+
+        assertTrue(m.inneholder(1));
+        assertFalse(m.inneholder(2));
+        assertTrue(m.inneholder(3));
+        assertTrue(m.inneholder(4));
+        assertEquals(3, m.antallElementer());
     }
 }

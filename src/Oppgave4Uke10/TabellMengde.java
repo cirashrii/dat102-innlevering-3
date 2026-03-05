@@ -85,7 +85,14 @@ public class TabellMengde<T> implements MengdeADT<T> {
 
     @Override
     public MengdeADT<T> minus(MengdeADT<T> annenMengde) {
-        return null;
+        MengdeADT<T> tempMengdetabell = new TabellMengde<>();
+
+        for (int i = 0; i < n; i++) {
+            if (!annenMengde.inneholder(mengdeTabell[i])){
+                tempMengdetabell.leggTil(mengdeTabell[i]);
+            }
+        }
+        return tempMengdetabell;
     }
 
     @Override
@@ -109,6 +116,18 @@ public class TabellMengde<T> implements MengdeADT<T> {
 
     @Override
     public T fjern(T element) {
+        if (!inneholder(element)) {
+            return null;
+        } else {
+            for (int i = 0; i < n; i++) {
+                if (mengdeTabell[i] == element) {
+                    n--;
+                    mengdeTabell[i] = mengdeTabell[n];
+                    mengdeTabell[n] = null;
+                    return element;
+                }
+            }
+        }
         return null;
     }
 
