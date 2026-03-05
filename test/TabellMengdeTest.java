@@ -51,6 +51,21 @@ public class TabellMengdeTest {
     }
 
     @Test
+    void sjekkDelmengdeAvEtterForsteElement() {
+        MengdeADT<Integer> m1 = new TabellMengde<>();
+        m1.leggTil(2);
+        m1.leggTil(3);
+
+        MengdeADT<Integer> m2 = new TabellMengde<>();
+        m2.leggTil(1);
+        m2.leggTil(2);
+        m2.leggTil(3);
+        m2.leggTil(4);
+
+        assertTrue(m1.erDelmengdeAv(m2));
+    }
+
+    @Test
     void sjekkErIkkeDelmengdeAv() {
         MengdeADT<Integer> m1 = new TabellMengde<>();
         m1.leggTil(1);
