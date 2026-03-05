@@ -76,7 +76,11 @@ public class TabellMengde<T> implements MengdeADT<T> {
 
     @Override
     public MengdeADT<T> union(MengdeADT<T> annenMengde) {
-        return null;
+        MengdeADT<T> tempMengdetabell = new TabellMengde<>();
+        tempMengdetabell.leggTilAlleFra(this);
+        tempMengdetabell.leggTilAlleFra(annenMengde);
+
+        return tempMengdetabell;
     }
 
     @Override
@@ -97,7 +101,10 @@ public class TabellMengde<T> implements MengdeADT<T> {
 
     @Override
     public void leggTilAlleFra(MengdeADT<T> annenMengde) {
-
+        T[] tempMengdetabell = annenMengde.tilTabell();
+        for (int i = 0; i < annenMengde.antallElementer(); i++) {
+            leggTil(tempMengdetabell[i]);
+        }
     }
 
     @Override

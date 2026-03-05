@@ -183,4 +183,44 @@ public class TabellMengdeTest {
         assertFalse(m3.inneholder(4));
         assertFalse(m3.inneholder(5));
     }
+
+    @Test
+    void sjekkUnion() {
+        MengdeADT<Integer> m1 = new TabellMengde<>();
+        m1.leggTil(1);
+        m1.leggTil(2);
+        m1.leggTil(3);
+
+        MengdeADT<Integer> m2 = new TabellMengde<>();
+        m2.leggTil(3);
+        m2.leggTil(4);
+        m2.leggTil(5);
+
+        MengdeADT<Integer> m3 = m1.union(m2);
+        assertTrue(m3.inneholder(1));
+        assertTrue(m3.inneholder(2));
+        assertTrue(m3.inneholder(3));
+        assertTrue(m3.inneholder(4));
+        assertTrue(m3.inneholder(5));
+    }
+
+    @Test
+    void sjekkLeggTilMange() {
+        MengdeADT<Integer> m1 = new TabellMengde<>();
+        m1.leggTil(1);
+        m1.leggTil(2);
+        m1.leggTil(3);
+
+        MengdeADT<Integer> m2 = new TabellMengde<>();
+        m2.leggTil(3);
+        m2.leggTil(4);
+        m2.leggTil(5);
+
+        m1.leggTilAlleFra(m2);
+        assertTrue(m1.inneholder(1));
+        assertTrue(m1.inneholder(2));
+        assertTrue(m1.inneholder(3));
+        assertTrue(m1.inneholder(4));
+        assertTrue(m1.inneholder(5));
+    }
 }
