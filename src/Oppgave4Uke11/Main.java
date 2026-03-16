@@ -31,7 +31,21 @@ public class Main {
         if (count == 10000) {
             System.out.println("Alle elementer funnet i HashSet.");
             System.out.println("Totaltid: " + gjennomsnittMs + " ms");
-        };
+        }
+
+        System.out.println();
+
+        start = System.nanoTime();
+        for(int i = 0; i < finnTabell.length; i++) {
+            Arrays.binarySearch(eksempelTabell,finnTabell[i]);
+        }
+        slutt = System.nanoTime();
+        totalNano = slutt - start;
+        gjennomsnittMs = totalNano / 1_000_000.0;
+        System.out.println("Alle elementer funnet i Tabell via binary search.");
+        System.out.println("Totaltid: " + gjennomsnittMs + " ms");
+
+
 
 //        for(int i = 0; i < eksempelTabell.length; i++) {
 //            System.out.print(eksempelTabell[i] + ", ");
