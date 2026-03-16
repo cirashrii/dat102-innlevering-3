@@ -45,18 +45,6 @@ public class Main {
         System.out.println("Alle elementer funnet i Tabell via binary search.");
         System.out.println("Totaltid: " + gjennomsnittMs + " ms");
 
-
-
-//        for(int i = 0; i < eksempelTabell.length; i++) {
-//            System.out.print(eksempelTabell[i] + ", ");
-//        }
-//
-//        System.out.println("\n\n\nHASHSET STARTER HER\n");
-//
-//        for (Integer a: eksempelHashSet) {
-//            System.out.print(a + ", ");
-//        }
-
     }
 
     public static Integer[] opprettTabell() {
@@ -71,14 +59,3 @@ public class Main {
     }
 
 }
-
-// TODO
-// Lage en sett med metoder (eller ta det direkte i main) som inkluderer blant annet:
-// Opprettelse av tabell
-// Størrelse 100 000, og kan inkludere tall mellom 0 og 999 999 (bruk random)
-// Der hver verdi er unik
-// Og alt skal være sortert (bruk ferdiglagd metode til dette)
-// Også skal det overføres til en hashset
-
-// Deretter, når det er ferdig, skal vi kjøre søking og binærsøking ved bruk av desse tabellene
-// Også analysere kjøretid ved IntelliJ sin innebygde greier (må dobbelsjekke navnet)
