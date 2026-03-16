@@ -8,12 +8,30 @@ public class Main {
     public static void main(String[] args) {
 
         Integer[] eksempelTabell = opprettTabell();
+        Integer[] finnTabell = new Integer[10000];
+        for (int i = 0; i < finnTabell.length; i++) {
+            finnTabell[i] = eksempelTabell[i];
+        }
         Arrays.sort(eksempelTabell);
-        Set<Integer> eksempelHashSet = new HashSet<>();
-        eksempelHashSet.addAll(Arrays.asList(eksempelTabell));
+        Set<Integer> eksempelHashSet = new HashSet<>(Arrays.asList(eksempelTabell));
 
         boolean sjekkOmSetOgTabellErLik = eksempelHashSet.equals(new HashSet<>(Arrays.asList(eksempelTabell)));
         System.out.println("Hash og tabell er lik = " + sjekkOmSetOgTabellErLik);
+
+        int count = 0;
+        long start = System.nanoTime();
+        for(int i = 0; i < finnTabell.length; i++) {
+            if (eksempelHashSet.contains(finnTabell[i])) {
+                count++;
+            }
+        }
+        long slutt = System.nanoTime();
+        long totalNano = slutt - start;
+        double gjennomsnittMs = totalNano / 1_000_000.0;
+        if (count == 10000) {
+            System.out.println("Alle elementer funnet i HashSet.");
+            System.out.println("Totaltid: " + gjennomsnittMs + " ms");
+        };
 
 //        for(int i = 0; i < eksempelTabell.length; i++) {
 //            System.out.print(eksempelTabell[i] + ", ");
