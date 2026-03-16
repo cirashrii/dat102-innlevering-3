@@ -2,27 +2,28 @@ package Oppgave4Uke11;
 
 import java.util.Arrays;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 public class Main {
     public static void main(String[] args) {
 
         Integer[] eksempelTabell = opprettTabell();
-        Arrays.stream(eksempelTabell).sorted();
+        Arrays.sort(eksempelTabell);
         Set<Integer> eksempelHashSet = new HashSet<>();
         eksempelHashSet.addAll(Arrays.asList(eksempelTabell));
 
+        boolean sjekkOmSetOgTabellErLik = eksempelHashSet.equals(new HashSet<>(Arrays.asList(eksempelTabell)));
+        System.out.println("Hash og tabell er lik = " + sjekkOmSetOgTabellErLik);
 
-        for(int i = 0; i < eksempelTabell.length; i++) {
-            System.out.print(eksempelTabell[i] + ", ");
-        }
-
-        System.out.println("\n\n\nHASHSET STARTER HER\n");
-
-        for (Integer a: eksempelHashSet) {
-            System.out.print(a + ", ");
-        }
+//        for(int i = 0; i < eksempelTabell.length; i++) {
+//            System.out.print(eksempelTabell[i] + ", ");
+//        }
+//
+//        System.out.println("\n\n\nHASHSET STARTER HER\n");
+//
+//        for (Integer a: eksempelHashSet) {
+//            System.out.print(a + ", ");
+//        }
 
     }
 
